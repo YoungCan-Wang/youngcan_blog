@@ -43,24 +43,39 @@ export default function Trading() {
     const maxVal = Math.max(...balances) * 1.05; // 5% padding top
     const minVal = Math.min(...balances) * 0.95; // 5% padding bottom
     
-    const scaleX = (index) => padding.left + (index / (equityPoints.length - 1)) * (chartWidth - padding.left - padding.right);
-    const scaleY = (val) => chartHeight - padding.bottom - ((val - minVal) / (maxVal - minVal)) * (chartHeight - padding.top - padding.bottom);
+    const scaleX = (index) => {
+      if (equityPoints.length <= 1) return padding.left;
+      return padding.left + (index / (equityPoints.length - 1)) * (chartWidth - padding.left - padding.right);
+    };
+    
+    const scaleY = (val) => {
+      const diff = maxVal - minVal;
+      if (diff === 0) return chartHeight - padding.bottom - (chartHeight - padding.top - padding.bottom) / 2;
+      return chartHeight - padding.bottom - ((val - minVal) / diff) * (chartHeight - padding.top - padding.bottom);
+    };
     
     return { scaleX, scaleY, maxVal, minVal };
   }, [equityPoints]);
 
   // Generate SVG path strings
   const { linePath, areaPath, svgPoints } = useMemo(() => {
+    if (equityPoints.length === 0) return { linePath: '', areaPath: '', svgPoints: [] };
+
     const pts = equityPoints.map((pt, i) => ({
       x: chartScale.scaleX(i),
       y: chartScale.scaleY(pt.balance),
       pt
     }));
 
-    if (pts.length === 0) return { linePath: '', areaPath: '', svgPoints: [] };
+    let line = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+    
+    // If only one point (initial funds), extend a flat line to the right border
+    if (pts.length === 1) {
+      const endX = chartWidth - padding.right;
+      line = `M ${pts[0].x} ${pts[0].y} L ${endX} ${pts[0].y}`;
+    }
 
-    const line = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
-    const area = `${line} L ${pts[pts.length - 1].x} ${chartHeight - padding.bottom} L ${pts[0].x} ${chartHeight - padding.bottom} Z`;
+    const area = `${line} L ${pts.length === 1 ? (chartWidth - padding.right) : pts[pts.length - 1].x} ${chartHeight - padding.bottom} L ${pts[0].x} ${chartHeight - padding.bottom} Z`;
 
     return { linePath: line, areaPath: area, svgPoints: pts };
   }, [equityPoints, chartScale]);
