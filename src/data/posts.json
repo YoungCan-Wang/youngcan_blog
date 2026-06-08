@@ -1,0 +1,46 @@
+[
+  {
+    "id": "learning-react",
+    "title": "我的知识管理体系与高效学习方法论",
+    "summary": "在这个信息爆炸的时代，如何构建一套适合自己的知识管理系统？本文分享我如何通过输入、内化、整理、输出四个维度，利用双链笔记和费曼学习法实现知识的高效内化与成长。",
+    "category": "learning",
+    "categoryName": "知识学习",
+    "date": "2026-06-05",
+    "readTime": "6 分钟",
+    "tags": ["学习方法", "个人管理", "费曼技巧"],
+    "filename": "learning-system.md"
+  },
+  {
+    "id": "trading-rules",
+    "title": "交易复盘：我的趋势交易规则与仓位管理系统",
+    "summary": "交易是概率的艺术，也是人性的修行。本文总结了我交易系统中的核心规则，包括趋势确认、入场点位、止损设定以及最重要的凯利公式仓位控制法，并对近期几笔经典交易进行深度剖析。",
+    "category": "trading",
+    "categoryName": "交易复盘",
+    "date": "2026-05-28",
+    "readTime": "8 分钟",
+    "tags": ["量化交易", "风险管理", "趋势跟踪"],
+    "filename": "trading-rules.md"
+  },
+  {
+    "id": "growth-framework",
+    "title": "第二反思：如何运用心智模型突破认知天花板",
+    "summary": "为什么努力却无法突破现状？因为我们的决策模型已经陈旧。本文介绍查理·芒格提倡的栅格心智模型，并深入探讨第一性原理、二阶思考和安全边际在日常决策与职业规划中的应用。",
+    "category": "cognition",
+    "categoryName": "成长认知",
+    "date": "2026-05-15",
+    "readTime": "5 分钟",
+    "tags": ["思维模型", "个人成长", "心智模型"],
+    "filename": "growth-framework.md"
+  },
+  {
+    "id": "meditation-practice",
+    "title": "生活心得：正念冥想与我的生活叙事重构",
+    "summary": "在喧嚣的日常中寻得内心的笃定。分享我坚持每日正念冥想 100 天的身体变化与心理感悟，以及如何通过重构生活叙事，将日常的琐碎与压力转变为成长的养分。",
+    "category": "life",
+    "categoryName": "生活心得",
+    "date": "2026-04-20",
+    "readTime": "4 分钟",
+    "tags": ["正念冥想", "生活美学", "心理健康"],
+    "filename": "meditation-practice.md"
+  }
+]

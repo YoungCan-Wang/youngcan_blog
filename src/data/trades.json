@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "date": "2026-06-05",
+    "symbol": "BTCUSDT",
+    "direction": "做多",
+    "entry": 68500,
+    "exit": 71200,
+    "pnl": 2700,
+    "pnlPercent": 3.94,
+    "setup": "4小时级别突破阻力",
+    "outcome": "Win",
+    "notes": "完美回踩确认，成交量放大，符合标准突破形态。止损设于阻力下方，盈亏比 1:3 完美兑现。"
+  },
+  {
+    "id": 2,
+    "date": "2026-06-03",
+    "symbol": "ETHUSDT",
+    "direction": "做多",
+    "entry": 3720,
+    "exit": 3610,
+    "pnl": -110,
+    "pnlPercent": -2.95,
+    "setup": "均线支撑反弹",
+    "outcome": "Loss",
+    "notes": "假突破，入场后价格迅速跌破EMA20均线，触发移动止损。止损果断，执行无误。"
+  },
+  {
+    "id": 3,
+    "date": "2026-05-29",
+    "symbol": "NVDA",
+    "direction": "做多",
+    "entry": 1050,
+    "exit": 1120,
+    "pnl": 70,
+    "pnlPercent": 6.67,
+    "setup": "财报后跳空缺口回补",
+    "outcome": "Win",
+    "notes": "高开后回调至缺口边缘获得买盘支撑，日内回踩后反弹入场。仓位控制合理，止盈点位精准。"
+  },
+  {
+    "id": 4,
+    "date": "2026-05-25",
+    "symbol": "GOLD",
+    "direction": "做空",
+    "entry": 2350,
+    "exit": 2368,
+    "pnl": -18,
+    "pnlPercent": -0.76,
+    "setup": "区间阻力压制",
+    "outcome": "Loss",
+    "notes": "金价在2350受阻，尝试做空。由于地缘局势突发紧张，避险资金流入突破区间。止损坚决，小亏离场。"
+  },
+  {
+    "id": 5,
+    "date": "2026-05-20",
+    "symbol": "BTCUSDT",
+    "direction": "做多",
+    "entry": 64200,
+    "exit": 67800,
+    "pnl": 3600,
+    "pnlPercent": 5.61,
+    "setup": "日线双底反弹",
+    "outcome": "Win",
+    "notes": "构筑完美W底底背离形态，颈线位突破后入场。分批止盈策略见效，保留了大部分利润。"
+  },
+  {
+    "id": 6,
+    "date": "2026-05-18",
+    "symbol": "AAPL",
+    "direction": "做多",
+    "entry": 182,
+    "exit": 189,
+    "pnl": 7,
+    "pnlPercent": 3.85,
+    "setup": "均线多头排列",
+    "outcome": "Win",
+    "notes": "苹果发布会前夕资金流入，沿着EMA10健康上涨。按照1.5倍波动率止盈，落袋为安。"
+  },
+  {
+    "id": 7,
+    "date": "2026-05-12",
+    "symbol": "TSLA",
+    "direction": "做空",
+    "entry": 178,
+    "exit": 182,
+    "pnl": -4,
+    "pnlPercent": -2.25,
+    "setup": "弱势股反弹阻力做空",
+    "outcome": "Loss",
+    "notes": "股价反弹至178阻力位做空，但由于大盘情绪过暖，逆势操作被强平止损。今后应顺应大盘趋势。"
+  }
+]
