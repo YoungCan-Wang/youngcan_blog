@@ -9,5 +9,16 @@
     "readTime": "12 分钟",
     "tags": ["大语言模型", "推理模型", "心智模型", "认知框架"],
     "filename": "llm-classification-framework.md"
+  },
+  {
+    "id": "llm-long-context-hallucination",
+    "title": "长上下文与幻觉陡增的底层机制",
+    "summary": "深入探究为什么 LLM 随着上下文增长其性能和准确度会下降。分析注意力摊薄、位置偏置（Lost in the Middle）、窗口截断、状态污染等十二大核心机制及工程优化策略。",
+    "category": "learning",
+    "categoryName": "知识学习",
+    "date": "2026-06-08",
+    "readTime": "10 分钟",
+    "tags": ["大语言模型", "长上下文", "注意力机制", "幻觉优化"],
+    "filename": "llm-long-context-hallucination.md"
   }
 ]
