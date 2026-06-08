@@ -18,7 +18,7 @@ export default function Trading() {
 
   // Calculate Equity Curve points
   const equityPoints = useMemo(() => {
-    let currentBalance = 10000;
+    let currentBalance = 500000;
     const points = [{ balance: currentBalance, date: 'Start', symbol: '初始资金', pnl: 0 }];
     
     chronoTrades.forEach(trade => {
@@ -152,10 +152,10 @@ export default function Trading() {
         <div className="glass kpi-card">
           <div className="kpi-label">净盈亏 (Net PnL)</div>
           <div className={`kpi-value ${stats.netProfit >= 0 ? 'pnl-badge win' : 'pnl-badge loss'}`} style={{ fontSize: '1.75rem' }}>
-            {stats.netProfit >= 0 ? '+' : ''}${stats.netProfit}
+            {stats.netProfit >= 0 ? '+' : ''}¥{stats.netProfit}
           </div>
           <div className={`kpi-trend ${stats.netProfit >= 0 ? 'positive' : 'negative'}`}>
-            <TrendingUp size={14} /> 初始资金: $10,000
+            <TrendingUp size={14} /> 初始资金: ¥500,000
           </div>
         </div>
 
@@ -178,7 +178,7 @@ export default function Trading() {
         <div className="glass kpi-card">
           <div className="kpi-label">每笔均收 (Avg Trade)</div>
           <div className={`kpi-value ${stats.avgTrade >= 0 ? 'pnl-badge win' : 'pnl-badge loss'}`} style={{ fontSize: '1.75rem' }}>
-            {stats.avgTrade >= 0 ? '+' : ''}${stats.avgTrade}
+            {stats.avgTrade >= 0 ? '+' : ''}¥{stats.avgTrade}
           </div>
           <div className="kpi-trend" style={{ color: 'var(--text-muted)' }}>
             共交易 {stats.total} 笔
@@ -223,7 +223,7 @@ export default function Trading() {
                     y={y + 4} 
                     textAnchor="end"
                   >
-                    ${Math.round(yVal)}
+                    ¥{Math.round(yVal)}
                   </text>
                 </g>
               );
@@ -267,11 +267,11 @@ export default function Trading() {
               <div style={{ fontWeight: 600 }}>{hoveredPoint.symbol}</div>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>{hoveredPoint.date}</div>
               <div style={{ borderTop: '1px solid var(--border-color)', marginTop: '4px', paddingTop: '4px' }}>
-                账户余额: <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>${hoveredPoint.balance}</span>
+                账户余额: <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>¥{hoveredPoint.balance}</span>
               </div>
               {hoveredPoint.pnl !== 0 && (
                 <div style={{ color: hoveredPoint.pnl > 0 ? 'var(--cat-life)' : '#ef4444' }}>
-                  PnL: {hoveredPoint.pnl > 0 ? '+' : ''}${hoveredPoint.pnl}
+                  PnL: {hoveredPoint.pnl > 0 ? '+' : ''}¥{hoveredPoint.pnl}
                 </div>
               )}
             </div>
@@ -362,10 +362,10 @@ export default function Trading() {
                             {trade.direction}
                           </span>
                         </td>
-                        <td>{trade.entry} / {trade.exit}</td>
+                        <td>¥{trade.entry} / ¥{trade.exit}</td>
                         <td>
                           <span className={`pnl-badge ${trade.outcome === 'Win' ? 'win' : 'loss'}`}>
-                            {trade.pnl > 0 ? '+' : ''}{trade.pnl} ({trade.pnlPercent}%)
+                            {trade.pnl > 0 ? '+' : ''}¥{trade.pnl} ({trade.pnlPercent}%)
                           </span>
                         </td>
                         <td>{trade.setup}</td>

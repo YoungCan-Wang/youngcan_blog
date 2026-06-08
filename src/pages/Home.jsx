@@ -189,7 +189,7 @@ export default function Home({ navigateTo, setBlogCategory }) {
                 </div>
 
                 <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                  实盘记录包含加密货币(BTC/ETH)和美股(AAPL/TSLA/NVDA)等资产。核心逻辑基于日线/4小时级别趋势跟踪与支撑阻力突破系统。
+                  实盘记录主要包含A股市场（奥尼电子/苏州天脉/华盛昌/瑞丰光电等）仓位。核心逻辑基于日线/4小时级别趋势跟踪与交易复盘系统。
                 </p>
 
                 <button 
