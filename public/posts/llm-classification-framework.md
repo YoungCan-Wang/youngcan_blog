@@ -18,11 +18,11 @@
 
 它不是数据库检索，也不是人脑思考。它本质是一个巨大的函数：
 
-$$\text{输入上下文} \rightarrow \text{神经网络前向计算} \rightarrow \text{输出下一个 token 的概率分布}$$
+> `输入上下文` → `神经网络前向计算` → `输出下一个 token 的概率分布`
 
 然后不断重复：
 
-$$\text{第 1 个 token} \rightarrow \text{第 2 个 token} \rightarrow \text{第 3 个 token} \rightarrow \text{最终答案}$$
+> `第 1 个 token` → `第 2 个 token` → `第 3 个 token` → `最终答案`
 
 所以模型回答一段话，本质上是连续很多次“预测下一个 token”。
 
@@ -81,10 +81,10 @@ $$\text{第 1 个 token} \rightarrow \text{第 2 个 token} \rightarrow \text{�
 ## 四、为什么“多想一会儿”真的会变强
 
 普通模型回答问题像这样：
-$$\text{输入问题} \rightarrow \text{直接输出答案}$$
+> `输入问题` → `直接输出答案`
 
 推理模型回答问题更像这样：
-$$\text{输入问题} \rightarrow \text{拆问题} \rightarrow \text{生成候选路径} \rightarrow \text{检查条件} \rightarrow \text{修正错误} \rightarrow \text{输出答案}$$
+> `输入问题` → `拆问题` → `生成候选路径` → `检查条件` → `修正错误` → `输出答案`
 
 这中间多出来的 token，就是 reasoning tokens / thinking tokens。这些 token 不一定展示给用户。有些模型隐藏，有些模型可以部分展示，有些模型只给最终答案。
 
@@ -95,8 +95,8 @@ $$\text{输入问题} \rightarrow \text{拆问题} \rightarrow \text{生成候�
 *   **非推理模型**：可能直接套话说“回到原价”。
 *   **推理模型**：会写中间过程：
     1. 原价 100
-    2. 涨 20% $\rightarrow$ 120
-    3. 降 20% $\rightarrow$ 96
+    2. 涨 20% → 120
+    3. 降 20% → 96
     4. 所以不是原价，而是少了 4%
 
 这个中间过程就是外部化的工作记忆。更复杂的代码、数学、规划任务也是一样。如果不给它中间状态，它容易“凭感觉生成”。
@@ -176,7 +176,7 @@ $$\text{输入问题} \rightarrow \text{拆问题} \rightarrow \text{生成候�
 比如你问：“我们公司上周的 PRD 是怎么写的？”模型参数里不可能有你公司的私有 PRD，必须用 RAG 检索并提供上下文。
 
 RAG 流程一般是：
-$$\text{用户问题} \rightarrow \text{Query改写} \rightarrow \text{向量/关键词检索} \rightarrow \text{Rerank} \rightarrow \text{取相关片段} \rightarrow \text{塞进 Prompt} \rightarrow \text{模型回答}$$
+> `用户问题` → `Query改写` → `向量/关键词检索` → `Rerank` → `取相关片段` → `塞进 Prompt` → `模型回答`
 
 RAG 解决的是“知识新鲜度”和“私有知识”问题，不直接提升模型智商。**强模型 + 好 RAG**，才是企业知识问答的基本形态。
 
@@ -197,10 +197,11 @@ Function Calling / Tool Use 的本质是：**模型输出一个结构化 JSON，
 
 ## 十一、Agent 不是一个模型，是一个系统
 
-$$\text{Agent} = \text{LLM} + \text{工具} + \text{记忆} + \text{规划} + \text{执行循环} + \text{状态管理} + \text{权限控制} + \text{评估体系}$$
+> **Agent 架构公式**：
+> `Agent = LLM + 工具 + 记忆 + 规划 + 执行循环 + 状态管理 + 权限控制 + 评估体系`
 
 一个最简单的 Agent 循环是：
-$$\text{用户目标} \rightarrow \text{模型规划} \rightarrow \text{调工具} \rightarrow \text{观察结果} \rightarrow \text{再规划} \rightarrow \text{再调工具} \rightarrow \text{输出结果}$$
+> `用户目标` → `模型规划` → `调工具` → `观察结果` → `再规划` → `再调工具` → `输出结果`
 
 Agentic Model 的意思不是“这个模型里面住了一个智能体”，而是**该模型更擅长在上述循环中工作**。
 
@@ -213,9 +214,9 @@ Claude 3.5 Sonnet 等顶级模型的竞争，已经从“单轮回答聪明”�
 多模态模型不是“图片模型 + 文字模型简单拼接”。
 
 一般做法是：
-$$\text{图像} \rightarrow \text{Vision Encoder} \rightarrow \text{图像特征 token}$$
-$$\text{音频} \rightarrow \text{Audio Encoder} \rightarrow \text{音频特征 token}$$
-$$\text{文本} \rightarrow \text{Text Token}$$
+*   **图像** → `Vision Encoder` → `图像特征 token`
+*   **音频** → `Audio Encoder` → `音频特征 token`
+*   **文本** → `Text Token`
 
 然后统一送进大模型，让模型在**共同表示空间**里进行统一推理。图片在模型眼里不是 jpg，而是一串视觉 token。
 
